@@ -10,7 +10,7 @@ import cv2
 from tqdm import tqdm
 
 # 1) Paramètres
-masks_dir  = "/home/mateo/ssd_bis/Datasets/DeepFish/Segmentation/masks/valid"
+masks_dir  = "/home/mateo/ssd_bis/datasets_coco/Fish4Knowledge-Ground_Truth/images"
 output_json = "annotations_coco.json"
 
 # 2) Initialisation du dict COCO
