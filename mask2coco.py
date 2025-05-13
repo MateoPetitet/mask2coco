@@ -10,8 +10,7 @@ import cv2
 from tqdm import tqdm
 
 # 1) Paramètres
-images_dir = "images/"
-masks_dir  = "masks/"
+masks_dir  = "/home/mateo/ssd_bis/Datasets/DeepFish/Segmentation/masks/valid"
 output_json = "annotations_coco.json"
 
 # 2) Initialisation du dict COCO
@@ -19,7 +18,7 @@ coco = {
     "images": [],
     "annotations": [],
     "categories": [
-        {"id": 1, "name": "poisson", "supercategory": "animal"}
+        {"id": 1, "name": "fish", "supercategory": "none"}
     ]
 }
 
@@ -27,12 +26,12 @@ ann_id = 1  # compteur global d'annotations
 img_id = 1
 
 # 3) Parcours des images
-for fname in tqdm(sorted(os.listdir(images_dir))):
+for fname in tqdm(sorted(os.listdir(masks_dir))):
     if not fname.lower().endswith((".jpg", ".png")):
         continue
 
     # --- a) Lire l'image pour récupérer width/height
-    img_path = os.path.join(images_dir, fname)
+    img_path = os.path.join(masks_dir, fname)
     img = cv2.imread(img_path)
     h, w = img.shape[:2]
 
